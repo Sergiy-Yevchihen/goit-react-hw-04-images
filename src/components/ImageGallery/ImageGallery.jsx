@@ -6,9 +6,9 @@ import { ImageGalleryUl } from './ImageGallery.styled';
 const ImageGallery = ({ images, onItemClick }) => {
   return (
     <ImageGalleryUl>
-      {images.map(image => (
+      {images.map((image, index) => (
         <ImageGalleryItem
-          key={image.id}
+          key={`${image.id}-${index}`}
           image={image}
           onItemClick={onItemClick}
         />
@@ -16,6 +16,7 @@ const ImageGallery = ({ images, onItemClick }) => {
     </ImageGalleryUl>
   );
 };
+
 
 ImageGallery.propTypes = {
   images: PropTypes.arrayOf(
